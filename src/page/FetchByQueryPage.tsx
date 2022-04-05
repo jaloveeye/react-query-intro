@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useQuery } from "react-query"
+import { queryKeys } from "../query/queryKeys"
 import { UserProps } from "../types"
 
 /**
@@ -7,7 +8,7 @@ import { UserProps } from "../types"
  */
 const FetchByQueryPage = () => {
 
-    const { isLoading, data } = useQuery('users-test', () => {
+    const { isLoading, data } = useQuery(queryKeys.userTest(), () => {
         return axios.get<UserProps[] >(`http://localhost:4000/users`)
     })
 

@@ -1,6 +1,7 @@
 import { QueryClient, useMutation, useQuery, useQueryClient } from "react-query"
 import { addUser, deleteUser, fetchUser, fetchUsers } from "../api/users"
 import { AddUserProps, UserProps } from '../types'
+import { queryKeys } from "./queryKeys"
 
 export const useUserData = (onSuccess: (res: UserProps[]) => void, onError: () => void) => {
 
@@ -13,7 +14,7 @@ export const useUserData = (onSuccess: (res: UserProps[]) => void, onError: () =
         >
      */
     return useQuery<UserProps[], Error>(
-        `users`,
+        queryKeys.users,
         () => fetchUsers(),
         {
             enabled: true,
@@ -32,11 +33,11 @@ export const useUserDataByUserId = (userId: number, onSuccess: (res: UserProps) 
     const queryClient: QueryClient = useQueryClient() 
 
     return useQuery<UserProps, Error>(
-        ['user', userId], 
+        queryKeys.user(userId), 
         () => fetchUser(userId), 
         {
             initialData: () => {
-                const user = queryClient.getQueryData<UserProps[]>('users')?.find(user => user.id === userId)
+                const user = queryClient.getQueryData<UserProps[]>(queryKeys.users)?.find(user => user.id === userId)
 
                 if (user) return user
                 else return undefined
@@ -52,7 +53,7 @@ export const useAddUser = () => {
 
     return useMutation(addUser, {
         onSuccess: () => {
-            queryClient.invalidateQueries('users')
+            queryClient.invalidateQueries(queryKeys.users)
         }
     })
 }
@@ -71,7 +72,7 @@ export const useAddUserToReturn = (user: AddUserProps) => {
 
     return useMutation<UserProps>(() => addUser(user), {
         onSuccess: () => {
-            queryClient.invalidateQueries('users')
+            queryClient.invalidateQueries(queryKeys.users)
         }
     })
 }
@@ -82,7 +83,7 @@ export const useDeleteUser = () => {
 
     return useMutation(deleteUser, {
         onSuccess: () => {
-            queryClient.invalidateQueries('users')
+            queryClient.invalidateQueries(queryKeys.users)
         }
     })
 }
