@@ -36,7 +36,7 @@ function App() {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/users">Users</Link></li>
                 <li><Link to="/fetch">이전 방식 Fetch</Link></li>
-                <li><Link to="/fetch-query">React Query 사용 Fetch</Link></li>
+                <li><Link to="/fetchquery">React Query 사용 Fetch</Link></li>
                 <li><Link to="/redux-page">Redux Page</Link></li>
               </ul>
             </nav>
@@ -45,7 +45,7 @@ function App() {
               <Route path="/users" element={<Users />} />
               <Route path="/user/:userId" element={<User />} />
               <Route path="/fetch" element={<FetchPage />} />
-              <Route path="/fetch-query" element={<FetchByQueryPage />} />
+              <Route path="/fetchquery" element={<FetchByQueryPage />} />
               <Route path="/redux-page" element={<ReduxPage />} />
             </Routes>
           </div>

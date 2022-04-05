@@ -7,7 +7,7 @@ import { UserProps } from "../types"
  */
 const FetchByQueryPage = () => {
 
-    const { isLoading, data } = useQuery('users', () => {
+    const { isLoading, data } = useQuery('users-test', () => {
         return axios.get<UserProps[] >(`http://localhost:4000/users`)
     })
 
