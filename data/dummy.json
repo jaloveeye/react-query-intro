@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "herace",
+      "email": "herace@example.com"
+    },
+    {
+      "id": 2,
+      "name": "hjkim",
+      "email": "hjkim@example.com"
+    },
+    {
+      "name": "abc",
+      "email": "abc@example.com",
+      "id": 3
+    }
+  ],
+  "emails": [
+    {
+      "id": "herace@example.com",
+      "spamCount": 100
+    }
+  ]
+}
