@@ -357,7 +357,7 @@ export default UserSaga
 <br /><br />
 
 ## 실행
-  1. npm install
+  1. npm install --force : react-query 와 react 18 버전 문제?
   2. yarn add json-server
   3. yarn start
 <br /><br />
