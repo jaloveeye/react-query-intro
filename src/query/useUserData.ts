@@ -6,7 +6,6 @@ import { AddUserProps, UserProps } from '../types'
 import { queryKeys } from "./queryKeys"
 
 export const useUserData = (onSuccess: (res: UserProps[]) => void, onError: () => void) => {
-
     /**
      * export function useQuery<
             TQueryFnData = unknown,  -> return 값
