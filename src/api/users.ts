@@ -19,6 +19,12 @@ export const addUser = async (user: AddUserProps) => {
     return response.data
 }
 
+export const addUserError = async (user: AddUserProps) => {
+    const response = await axios.post('http://localhost:4000/usersERROR', user)
+
+    return response.data
+}
+
 export const deleteUser = async (userId: number) => {
     const response = await axios.delete(`http://localhost:4000/users/${userId}`)
 
