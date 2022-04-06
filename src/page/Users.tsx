@@ -1,5 +1,8 @@
 import { useState } from 'react'
+import { useQueries } from 'react-query'
 import { Link } from 'react-router-dom'
+import { fetchUser } from '../api/users'
+import { queryKeys } from '../query/queryKeys'
 import { useAddUser, useAddUserToReturn, useDeleteUser, useUserData } from '../query/useUserData'
 import { UserProps } from '../types'
 import UserEmails from './UserEmails'
@@ -37,6 +40,18 @@ const Users = () => {
     }
     
     const { isLoading, isError, error, data } = useUserData(onSuccess, onError)
+
+    /**
+     * useQueries
+     */
+    //  const userQueries = useQueries(
+    //         data?.map( user => {
+    //             return {
+    //                 queryKey: queryKeys.user(user.id)
+    //                 queryFn: () => fetchUser(user.id)
+    //             }
+    //         })
+    //     )
 
     if (isLoading) return <div>Loading</div>
 

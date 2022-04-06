@@ -53,7 +53,20 @@ export const useAddUser = () => {
 
     return useMutation(addUser, {
         onSuccess: () => {
+            console.log(`onSuccess`)
             queryClient.invalidateQueries(queryKeys.users)
+        },
+        onError: (error, variables, context: any) => {
+            console.log(`onError`)
+            context.restore()
+        },
+        onMutate: variables => {
+            // start mutation
+            console.log(`onMutate ${Object.values(variables)}`)
+        },
+        onSettled: (data, error, variables, context) => {
+            // success, error 에 상관없이 끝나면 호출
+            console.log(`onSettled`)
         }
     })
 }

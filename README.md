@@ -19,6 +19,7 @@
   - [Using Json Server](#using-json-server)
   - [Other Dependency](#other-dependency)
 - [Vue Query?](#vue-query)
+- [Flutter Query?](#flutter-query)
 
 #
 
@@ -413,3 +414,6 @@ add script
 
 ## Vue Query?
 [Vue Query](https://vue-query.vercel.app/#/)
+
+## Flutter Query?
+[Flutter Requery](https://pub.dev/packages/flutter_requery)
